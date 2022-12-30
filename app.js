@@ -21,7 +21,6 @@ const readQuoteTweet = async () => {
 
 const getTweets = async () => {
 	const queryRes = await readQuery()
-	const quoteMessage = await readQuoteTweet()
 
 	const result = await twitterClient.v2.get("tweets/search/recent", {
 		query: queryRes,
@@ -37,6 +36,8 @@ const getTweets = async () => {
 };
 
 const quoteTweet = async (id) => {
+const quoteMessage = await readQuoteTweet()
+
 	const { data: createdTweet } = await twitterClient.v2.tweet(
 		quoteMessage,
 		{
