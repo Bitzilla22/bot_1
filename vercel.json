@@ -1,0 +1,9 @@
+{
+	"version": 2,
+	"name": "spprt-mm",
+	"builds": [
+		{
+			"src": "app.js", "use": "@vercel/node"
+		}
+	] 
+}
