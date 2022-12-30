@@ -38,7 +38,7 @@ const getTweets = async () => {
 
 const quoteTweet = async (id) => {
 	const { data: createdTweet } = await twitterClient.v2.tweet(
-		"Testing Support",
+		quoteMessage,
 		{
 			quote_tweet_id: id,
 		}
