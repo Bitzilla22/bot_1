@@ -24,7 +24,7 @@ const getTweets = async () => {
 
 	const result = await twitterClient.v2.get("tweets/search/recent", {
 		query: queryRes,
-		max_results: 10,
+		max_results: 20,
 		start_time: new Date(Date.now() - (process.env.TIME_INTERVAL * 60000)).toISOString()
 	});
 	const x = result.data.map(d => d.id)
