@@ -23,8 +23,11 @@ const getTweets = async () => {
 try{
 	const queryRes = await readQuery()
 
-console.log(new Date(Date.now() - (process.env.TIME_INTERVAL * 60000)).toISOString()
-	}))
+console.log(
+new Date(
+Date.now() - (process.env.TIME_INTERVAL * 60000)
+).toISOString()
+))
 	
 	const result = await twitterClient.v2.get("tweets/search/recent", {
 		query: queryRes,
