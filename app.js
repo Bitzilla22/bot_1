@@ -20,6 +20,7 @@ const readQuoteTweet = async () => {
 };
 
 const getTweets = async () => {
+try{
 	const queryRes = await readQuery()
 
 	const result = await twitterClient.v2.get("tweets/search/recent", {
@@ -33,9 +34,13 @@ const getTweets = async () => {
 	x.forEach(async (d) => {
 		await quoteTweet(d)
 	})
+} catch (e) {
+console.log(`ERROR: ${e}`)
+}
 };
 
 const quoteTweet = async (id) => {
+try {
 const quoteMessage = await readQuoteTweet()
 
 	const { data: createdTweet } = await twitterClient.v2.tweet(
@@ -45,6 +50,9 @@ const quoteMessage = await readQuoteTweet()
 		}
 	);
 	console.log("Tweet", createdTweet.id, ":", createdTweet.text);
+} catch (e) {
+console.log(`ERROR ${e}`)
+}
 };
 // getTweets()
 
