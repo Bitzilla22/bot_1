@@ -64,6 +64,7 @@ console.log(`ERROR ${e}`)
 // const cronTweet = new CronJob(`* 30 * * * *`, async () => {
 const cronTweet = new CronJob(process.env.CRON_SETTINGS, async () => {
 	getTweets();
+console.log("STARTING JOB")
 });
 
 cronTweet.start();
