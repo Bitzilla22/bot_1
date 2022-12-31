@@ -22,14 +22,15 @@ const readQuoteTweet = async () => {
 const getTweets = async () => {
 try{
 	const queryRes = await readQuery()
-
+	
 	const result = await twitterClient.v2.get("tweets/search/recent", {
 		query: queryRes,
 		max_results: 20,
 		start_time: new Date(Date.now() - (process.env.TIME_INTERVAL * 60000)).toISOString()
 	});
 console.log(result.data)
-if(result.data.length > 0) {
+console.log(result)
+if(result.data) {
 	const x = result.data.map(d => d.id)
 
 	console.log(x);
