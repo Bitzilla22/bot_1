@@ -28,12 +28,17 @@ try{
 		max_results: 20,
 		start_time: new Date(Date.now() - (process.env.TIME_INTERVAL * 60000)).toISOString()
 	});
+console.log(result.data)
+if(result.data.length > 0 {
 	const x = result.data.map(d => d.id)
 
 	console.log(x);
 	x.forEach(async (d) => {
 		await quoteTweet(d)
 	})
+} else {
+return "No results" 
+}
 } catch (e) {
 console.log(`ERROR: ${e}`)
 }
